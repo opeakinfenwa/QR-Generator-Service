@@ -1,6 +1,7 @@
 {
   "name": "qr-service-generator",
   "version": "1.0.0",
+  "description": "A modular Express.js backend service for generating and managing QR codes with PostgreSQL and Redis caching support.",
   "main": "server.ts",
   "scripts": {
     "clean": "rimraf dist",
@@ -16,7 +17,6 @@
   "keywords": [],
   "author": "Bami Akinfenwa",
   "license": "MIT",
-  "description": "A modular Express.js backend service for generating and managing QR codes with PostgreSQL and Redis caching support.",
   "dependencies": {
     "@types/passport-jwt": "^4.0.1",
     "axios": "^1.8.4",
