@@ -6,13 +6,11 @@ An extensible backend service built with **Express.js** and **PostgreSQL**, allo
 
 > Redis-based caching is also integrated to reduce redundant QR generation, improving response times and overall system efficiency.
 
----
-
 ## Architecture Overview
 
 The service follows a **modular yet pragmatic structure** for real-world backend development. It avoids strict Domain-Driven Design (DDD) but maintains logical separation through well-scoped directories:
 
-### Modules
+## Modules
 
 #### User Module
 
@@ -35,6 +33,8 @@ The service follows a **modular yet pragmatic structure** for real-world backend
 * Tracks scan counts and allows user-specific history retrieval.
 * Uses the `qrcode` npm package to produce base64-encoded PNGs.
 
+## Database Strategy & Optimization (PostgreSQL & Redis)
+
 #### Redis Caching (Integrated)
 
 * Caching is performed per-user using a `qr:<userId>:<data>` key format.
@@ -42,7 +42,7 @@ The service follows a **modular yet pragmatic structure** for real-world backend
 * On **scan** or **delete** operations, Redis cache is automatically invalidated to ensure consistency.
 * Works conditionally: if a user is unauthenticated, caching is skipped to prevent collisions or ambiguity.
 
-### Dockerized Redis for Local Development
+#### Dockerized Redis for Local Development
 To ensure consistent behavior across environments, Redis is containerized using Docker. The application connects to a Redis container defined in docker-compose.yml, enabling local caching functionality without manual Redis installation. This setup mirrors production-like infrastructure and local testing.
 
 #### Custom Migration System
@@ -74,16 +74,12 @@ npm run seed         # Applies all seeders from sql/
 npm run seed:undo    # Rolls back the last applied seed
 ```
 
----
-
 ## Testing & Reliability
 
 * TypeScript ensures strong typing across logic and controllers
 * Repository pattern enables service/repo decoupling for testability
 * Error handling is centralized and clearly categorized (e.g., NotFound, Unauthorized)
 * Modular middlewares separate concerns (e.g., `isAuth`, error handling, input checks)
-
----
 
 ## Project Structure
 
@@ -105,8 +101,6 @@ src/
 │   └── seed-runner.ts
 ```
 
----
-
 ## Technologies Used
 
 * **Express.js** – RESTful API routing and middleware
@@ -118,8 +112,6 @@ src/
 * **bcrypt** – Password hashing
 * **QRCode** – Dynamic QR generation (`qrcode` npm package)
 * **pg** – PostgreSQL native driver for raw SQL execution
-
----
 
 ## Getting Started
 
@@ -157,15 +149,11 @@ npm run build  # Compile TypeScript to /dist for production
 npm run start  # Run from compiled output
 ```
 
----
-
 ## Future Improvements
 
 * Add Swagger or Postman documentation
 * Add expiration support to Redis cache entries
 * Rate limiting and monitoring
-
----
 
 ## Acknowledgements
 
@@ -177,8 +165,6 @@ This project was crafted as part of a real-world backend engineering exercise, d
 * A custom, version-controlled approach to migrations and seeding
 
 It reflects an emphasis on **clarity**, **extensibility**, and **production-readiness** without over-engineering.
-
----
 
 ## License
 
