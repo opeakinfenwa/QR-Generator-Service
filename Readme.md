@@ -168,4 +168,4 @@ It reflects an emphasis on **clarity**, **extensibility**, and **production-read
 
 ## License
 
-MIT
+This project is licensed under the MIT License
