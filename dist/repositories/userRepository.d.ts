@@ -1,0 +1,9 @@
+export declare const getUserByEmail: (email: string) => Promise<any>;
+export declare const googleUserCheck: (email: string) => Promise<any>;
+export declare const createUser: (email: string, name: string, password: string, securityQuestion: string, securityAnswer: string) => Promise<any>;
+export declare const updateUserDetails: (id: string, updates: any) => Promise<any>;
+export declare const updateUserPassword: (id: string, hashedPassword: string) => Promise<any>;
+export declare const getUserById: (id: string) => Promise<any>;
+export declare const getUserByGoogleId: (googleId: string) => Promise<any>;
+export declare const deleteUserById: (id: string) => Promise<any>;
+//# sourceMappingURL=userRepository.d.ts.map
