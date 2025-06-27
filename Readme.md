@@ -4,7 +4,7 @@
 
 An extensible backend service built with **Express.js** and **PostgreSQL**, allowing users to generate, manage, and track QR codes. This system follows a clear separation of concerns using a project based structure (services, controllers, repositories, configs), while leveraging **raw SQL** for performance and control.
 
-> Redis-based caching is also integrated to reduce redundant QR generation, improving response times and overall system efficiency.
+> Redis based caching is also integrated to reduce redundant QR generation, improving response times and overall system efficiency.
 
 ## Architecture Overview
 
@@ -163,7 +163,7 @@ This project was crafted as part of a real world backend engineering exercise, d
 * Cache optimization using Redis
 * A custom, version controlled approach to migrations and seeding
 
-It reflects an emphasis on **clarity**, **extensibility**, and **production-readiness** without over engineering.
+It reflects an emphasis on **clarity**, **extensibility**, and **production readiness** without over engineering.
 
 ## License
 
