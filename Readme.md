@@ -31,7 +31,7 @@ The service follows a **modular yet pragmatic structure** for real world backend
 * Users (or guests) can generate QR codes for URLs or plain text.
 * QR code data is stored in the database with optional user association.
 * Tracks scan counts and allows user specific history retrieval.
-* Uses the `qrcode` npm package to produce base64-encoded PNGs.
+* Uses the `qrcode` npm package to produce base64 encoded PNGs.
 
 ## Database Strategy & Optimization (PostgreSQL & Redis)
 
