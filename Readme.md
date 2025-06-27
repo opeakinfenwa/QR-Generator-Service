@@ -2,13 +2,13 @@
 
 # QR Code Generator Service
 
-An extensible backend service built with **Express.js** and **PostgreSQL**, allowing users to generate, manage, and track QR codes. This system follows a clear separation of concerns using a project-based structure (services, controllers, repositories, configs), while leveraging **raw SQL** for performance and control.
+An extensible backend service built with **Express.js** and **PostgreSQL**, allowing users to generate, manage, and track QR codes. This system follows a clear separation of concerns using a project based structure (services, controllers, repositories, configs), while leveraging **raw SQL** for performance and control.
 
 > Redis-based caching is also integrated to reduce redundant QR generation, improving response times and overall system efficiency.
 
 ## Architecture Overview
 
-The service follows a **modular yet pragmatic structure** for real-world backend development. It avoids strict Domain-Driven Design (DDD) but maintains logical separation through well-scoped directories:
+The service follows a **modular yet pragmatic structure** for real world backend development. It avoids strict Domain Driven Design (DDD) but maintains logical separation through well scoped directories:
 
 ## Modules
 
@@ -24,26 +24,26 @@ The service follows a **modular yet pragmatic structure** for real-world backend
 * Includes:
 
   * `isAuth` middleware for protected endpoints.
-  * `isOptionalAuth` middleware for routes accessible to both guests and logged-in users.
+  * `isOptionalAuth` middleware for routes accessible to both guests and logged in users.
 
 #### QR Code Module
 
 * Users (or guests) can generate QR codes for URLs or plain text.
 * QR code data is stored in the database with optional user association.
-* Tracks scan counts and allows user-specific history retrieval.
+* Tracks scan counts and allows user specific history retrieval.
 * Uses the `qrcode` npm package to produce base64-encoded PNGs.
 
 ## Database Strategy & Optimization (PostgreSQL & Redis)
 
 #### Redis Caching (Integrated)
 
-* Caching is performed per-user using a `qr:<userId>:<data>` key format.
+* Caching is performed per user using a `qr:<userId>:<data>` key format.
 * If a QR code already exists for the same user and data, it's served directly from Redis.
 * On **scan** or **delete** operations, Redis cache is automatically invalidated to ensure consistency.
 * Works conditionally: if a user is unauthenticated, caching is skipped to prevent collisions or ambiguity.
 
 #### Dockerized Redis for Local Development
-To ensure consistent behavior across environments, Redis is containerized using Docker. The application connects to a Redis container defined in docker-compose.yml, enabling local caching functionality without manual Redis installation. This setup mirrors production-like infrastructure and local testing.
+To ensure consistent behavior across environments, Redis is containerized using Docker. The application connects to a Redis container defined in docker-compose.yml, enabling local caching functionality without manual Redis installation. This setup mirrors production like infrastructure and local testing.
 
 #### Custom Migration System
 
@@ -126,13 +126,12 @@ src/
 Create a `.env` file:
 
 ```env
-DATABASE_URL=postgres://user:pass@localhost:5432/qrdb
-DATABASE_URL_TEST=postgres://user:pass@localhost:5432/test_qrdb
-DATABASE_URL_PROD=postgres://user:pass@localhost:5432/prod_qrdb
+DATABASE_URL=...
+DATABASE_URL_TEST=...
+DATABASE_URL_PROD=...
 JWT_SECRET=your_jwt_secret
-REDIS_HOST=127.0.0.1
-REDIS_PORT=6379
-NODE_ENV=development
+REDIS_HOST=...
+REDIS_PORT=...
 ```
 
 ### Run Instructions
@@ -157,14 +156,14 @@ npm run start  # Run from compiled output
 
 ## Acknowledgements
 
-This project was crafted as part of a real-world backend engineering exercise, demonstrating:
+This project was crafted as part of a real world backend engineering exercise, demonstrating:
 
 * Proficiency in modular Express architecture
 * Practical use of raw SQL and PostgreSQL
 * Cache optimization using Redis
-* A custom, version-controlled approach to migrations and seeding
+* A custom, version controlled approach to migrations and seeding
 
-It reflects an emphasis on **clarity**, **extensibility**, and **production-readiness** without over-engineering.
+It reflects an emphasis on **clarity**, **extensibility**, and **production-readiness** without over engineering.
 
 ## License
 
