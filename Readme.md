@@ -43,7 +43,7 @@ The service follows a **modular yet pragmatic structure** for real world backend
 * Works conditionally: if a user is unauthenticated, caching is skipped to prevent collisions or ambiguity.
 
 #### Dockerized Redis for Local Development
-To ensure consistent behavior across environments, Redis is containerized using Docker. The application connects to a Redis container defined in docker-compose.yml, enabling local caching functionality without manual Redis installation. This setup mirrors production like infrastructure and local testing.
+To ensure consistent behavior across environments, Redis is containerised using Docker. The application connects to a Redis container defined in docker-compose.yml, enabling local caching functionality without manual Redis installation. This setup mirrors production like infrastructure and local testing.
 
 #### Custom Migration System
 
@@ -78,7 +78,7 @@ npm run seed:undo    # Rolls back the last applied seed
 
 * TypeScript ensures strong typing across logic and controllers
 * Repository pattern enables service/repo decoupling for testability
-* Error handling is centralized and clearly categorized (e.g., NotFound, Unauthorized)
+* Error handling is centralised and clearly categorized (e.g., NotFound, Unauthorized)
 * Modular middlewares separate concerns (e.g., `isAuth`, error handling, input checks)
 
 ## Project Structure
@@ -105,8 +105,8 @@ src/
 
 * **Express.js** – RESTful API routing and middleware
 * **PostgreSQL** – Primary relational database
-* **Redis** – Caching layer for QR code optimization
-* **Docker** – Used to containerize and run Redis locally in a consistent development environment
+* **Redis** – Caching layer for QR code optimisation
+* **Docker** – Used to containerise and run Redis locally in a consistent development environment
 * **TypeScript** – Static typing for reliability
 * **JWT** – Stateless authentication mechanism
 * **bcrypt** – Password hashing
@@ -160,7 +160,7 @@ This project was crafted as part of a real world backend engineering exercise, d
 
 * Proficiency in modular Express architecture
 * Practical use of raw SQL and PostgreSQL
-* Cache optimization using Redis
+* Cache optimisation using Redis
 * A custom, version controlled approach to migrations and seeding
 
 It reflects an emphasis on **clarity**, **extensibility**, and **production readiness** without over engineering.
